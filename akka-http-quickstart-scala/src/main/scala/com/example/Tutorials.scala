@@ -53,14 +53,36 @@ object Tutorials{
     val fut = Future { Thread.sleep(10000); 21 + 21 }
     println(fut.isCompleted)
     Thread.sleep(20000)
-    println(fut.isCompleted)
+    //println(fut.isCompleted)
+  }
+  def anonymous(): Unit = {
+    case class anonym(name: String){
+      def intro():Unit= {
+        println(s"Hello this is ${name}")
+      }
+    }
+    var objAnonym= anonym{
+      "Girish"
+    }
+    println(objAnonym.intro())
+  }
+  def functional_programming(): Unit={
+    val something=new Function1[Int,Int]{
+      override def apply(arg1:Int,arg2: Int): Int= {
+        arg1+arg2
+      }
+    }
+    val list1=List(1,2,3).map(x=>x+1)
+    val list2=List(1,2,3).map(x=>List(x,x+1))
+    println(list1)
+    println(list2)
   }
   def main(args: Array[String]): Unit = {
     exception()
     closure_lambda()
     collections()
-    futures()
-
-
+    //futures()
+    anonymous()
+    functional_programming()
   }
 }
