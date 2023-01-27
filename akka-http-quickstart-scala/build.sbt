@@ -6,6 +6,9 @@ lazy val akkaVersion    = "2.7.0"
 // If you want to keep the application running while executing other
 // sbt tasks, consider https://github.com/spray/sbt-revolver/
 fork := true
+enablePlugins(JavaAppPackaging)
+enablePlugins(sbtdocker.DockerPlugin)
+
 
 lazy val root = (project in file(".")).
   settings(
@@ -13,7 +16,7 @@ lazy val root = (project in file(".")).
       organization    := "com.example",
       scalaVersion    := "2.13.4"
     )),
-    name := "Scala-akka-tutorial",
+    name := "scalatutorial",
     libraryDependencies ++= Seq(
       "com.typesafe.akka" %% "akka-http"                % akkaHttpVersion,
       "com.typesafe.akka" %% "akka-http-spray-json"     % akkaHttpVersion,
@@ -27,3 +30,4 @@ lazy val root = (project in file(".")).
       "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion
     )
   )
+Compile / mainClass  := Some("com.example.QuickstartApp")

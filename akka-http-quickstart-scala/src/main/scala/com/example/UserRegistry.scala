@@ -27,7 +27,8 @@ object UserRegistry {
   private def registry(users: Set[User]): Behavior[Command] =
     Behaviors.receiveMessage {
       case GetUsers(replyTo) =>
-        replyTo ! Users(users.toSeq)
+        //val temp=scala.collection.immutable.ArraySeq(users:_*)
+        replyTo ! Users(users.to(collection.immutable.Seq))
         Behaviors.same
       case CreateUser(user, replyTo) =>
         replyTo ! ActionPerformed(s"User ${user.name} created.")

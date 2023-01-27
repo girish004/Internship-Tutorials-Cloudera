@@ -67,9 +67,9 @@ object Tutorials{
     println(objAnonym.intro())
   }
   def functional_programming(): Unit={
-    val something=new Function1[Int,Int]{
-      override def apply(arg1:Int,arg2: Int): Int= {
-        arg1+arg2
+    val something=new Function1[Int,Int] {
+       override def apply(arg1:Int): Int= {
+        arg1+2
       }
     }
     val list1=List(1,2,3).map(x=>x+1)
